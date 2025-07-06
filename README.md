@@ -3,6 +3,10 @@ This MCP server is meant as an example of how to implement a simple Model Contex
 Making use of Public Transport data from Stockholm, Sweden, this server allows AI assistants to plan journeys using the local public transport system.
 
 Also, how nice is it not to ask for directions in the terminal using Claude Code.
+![Asking for directions](https://github.com/user-attachments/assets/b9f4109f-0cf7-4c6b-9d3b-b150fd231e50)
+![MCP Response](https://github.com/user-attachments/assets/6a0dd15a-6bf3-4497-af67-db4ee65f59dd)
+
+
 
 ## Features
 
@@ -122,7 +126,7 @@ journey = plan_journey(
           "arrival_time": "14:12",
           "transport_type": "Metro",
           "line": "17",
-          "direction": "Skarpn‰ck"
+          "direction": "Skarpn√§ck"
         },
         {
           "origin": "Stockholm, T-Centralen",
@@ -131,7 +135,7 @@ journey = plan_journey(
           "arrival_time": "14:18",
           "transport_type": "Metro",
           "line": "19",
-          "direction": "Hags‰tra"
+          "direction": "Hags√§tra"
         }
       ]
     }
