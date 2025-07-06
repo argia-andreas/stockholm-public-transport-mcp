@@ -1,6 +1,8 @@
 # Stockholm Traffic Planner MCP Server
+This MCP server is meant as an example of how to implement a simple Model Context Protocol (MCP) server in Python.
+Making use of Public Transport data from Stockholm, Sweden, this server allows AI assistants to plan journeys using the local public transport system.
 
-A Model Context Protocol (MCP) server for planning public transport journeys in Stockholm, Sweden. This server provides AI assistants with the ability to search for stops and plan optimal routes using Stockholm's public transport system.
+Also, how nice is it not to ask for directions in the terminal using Claude Code.
 
 ## Features
 
@@ -40,19 +42,19 @@ Plan a journey between two stops with advanced filtering options.
 ## Installation
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.11+
 - uv (recommended) or pip
 
 ### Using uv (Recommended)
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/stockholm-traffic-mcp.git
+git clone https://github.com/argia-andreas/stockholm-traffic-mcp.git
 cd stockholm-traffic-mcp
 
 # Install dependencies
 uv sync
 
-# Run the server
+# Run the server with MCP inspector
 uv run mcp dev server.py
 ```
 
@@ -74,6 +76,10 @@ python server.py
 ```
 
 ## Usage Examples
+To use the server, simply ask your AI assistant a question like:
+- "How do I get from Odenplan to Slussen?"
+- "When is the next metro from Odenplan to Slussen?"
+
 
 ### Basic Journey Planning
 ```python
@@ -150,6 +156,13 @@ Add to your Claude Desktop configuration:
 }
 ```
 
+### Claude Code
+Add to your Claude Code configuration:
+
+```bash
+claude mcp add traffic-planner -- uv run mcp run /path/to/stockholm-traffic-mcp/server.py 
+```
+
 ### Other MCP Clients
 The server follows the standard MCP protocol and should work with any MCP-compatible client.
 
@@ -175,7 +188,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ### Development Setup
 ```bash
 # Clone and setup
-git clone https://github.com/your-username/stockholm-traffic-mcp.git
+git clone https://github.com/argia-andreas/stockholm-traffic-mcp.git
 cd stockholm-traffic-mcp
 uv sync
 
@@ -199,9 +212,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/your-username/stockholm-traffic-mcp/issues)
-- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/your-username/stockholm-traffic-mcp/discussions)
-- **API Issues**: For SL API problems, contact [Trafiklab Support](https://www.trafiklab.se/kontakt)
+- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/argia-andreas/stockholm-traffic-mcp/issues)
+- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/argia-andreas/stockholm-traffic-mcp/discussions)
+- **API Issues**: For SL API problems, check Trafiklab documentation [Trafiklab](https://www.trafiklab.se)
 
 ## Changelog
 
