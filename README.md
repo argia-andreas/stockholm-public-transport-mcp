@@ -217,7 +217,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 - **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/argia-andreas/stockholm-public-transport-mcp/issues)
-- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/argia-andreas/stockholm-public-transport-mcp/discussions)
 - **API Issues**: For SL API problems, check Trafiklab documentation [Trafiklab](https://www.trafiklab.se)
 
 ## Changelog
