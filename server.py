@@ -1,9 +1,10 @@
 # server.py
-from mcp.server.fastmcp import FastMCP
-import requests
-from typing import List, Dict, Any
 from datetime import datetime
+from typing import Any
+
 import pytz
+import requests
+from mcp.server.fastmcp import FastMCP
 
 # Create an MCP server
 mcp = FastMCP("Stockholm Traffic Planner")
@@ -30,7 +31,7 @@ def _convert_utc_to_stockholm(utc_time_str: str) -> str:
         return utc_time_str
 
 
-def _get_best_time(leg_data: Dict[str, Any], time_type: str) -> str:
+def _get_best_time(leg_data: dict[str, Any], time_type: str) -> str:
     """Get the best available time (real-time if available, otherwise planned)"""
     estimated_key = f"{time_type}TimeEstimated"
     planned_key = f"{time_type}TimePlanned"
@@ -42,7 +43,7 @@ def _get_best_time(leg_data: Dict[str, Any], time_type: str) -> str:
     return _convert_utc_to_stockholm(estimated_time or planned_time)
 
 
-def _simplify_journey_response(data: Dict[str, Any]) -> Dict[str, Any]:
+def _simplify_journey_response(data: dict[str, Any]) -> dict[str, Any]:
     """Simplify the complex journey response to essential information"""
     simplified = {"journeys": [], "system_messages": data.get("systemMessages", [])}
 
@@ -92,7 +93,7 @@ def _simplify_journey_response(data: Dict[str, Any]) -> Dict[str, Any]:
 
 
 @mcp.tool()
-def stop_lookup(name: str) -> List[Dict[str, Any]]:
+def stop_lookup(name: str) -> list[dict[str, Any]]:
     """Look up stops/stations by name in Stockholm public transport system.
 
     IMPORTANT: Use this tool FIRST to get stop IDs before calling plan_journey.
@@ -136,10 +137,10 @@ def plan_journey(
     destination_id: str,
     trips: int = 3,
     exclude_walking: bool = True,
-    exclude_transport_types: List[str] = None,
+    exclude_transport_types: list[str] = None,
     departure_time: str = None,
     max_walking_distance: int = 500,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Plan a journey between two stops in Stockholm public transport system.
 
     WORKFLOW:

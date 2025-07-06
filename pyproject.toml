@@ -21,6 +21,7 @@ dev = [
 [tool.ruff]
 line-length = 88
 target-version = "py311"
+extend-exclude = ["tests"]
 
 [tool.ruff.lint]
 select = [
@@ -39,6 +40,9 @@ ignore = [
 [tool.ruff.lint.isort]
 known-first-party = ["traffic"]
 
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["F401", "F841"]  # Allow unused imports and variables in tests
+
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
@@ -51,3 +55,10 @@ python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "-v --tb=short"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "responses>=0.25.7",
+    "ruff>=0.12.2",
+]
